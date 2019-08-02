@@ -13,7 +13,22 @@ const Mutation = {
     };
 
     return ctx.db.mutation.createUser({ data: userDetails });
-  }
+  },
+
+  async signin(parent, args, ctx, info) {
+    const { email, password } = args;
+    const user = await ctx.db.query.user({ where: { email } });
+
+    if (!user) {
+      throw new Error(`No user found for this email: ${email}`);
+    }
+    const isValidPassword = await bcrypt.compare(password, user.password);
+    if (!isValidPassword) {
+      throw new Error('Username and password don\'t match');
+    }
+    
+    return user;
+  },
 };
 
-export default Mutation
+export default Mutation;
