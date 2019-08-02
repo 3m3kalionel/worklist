@@ -9,6 +9,10 @@ type User {
   todoListsContributedTo: [TodoList!]
 }
 
+type SuccessMessage {
+  message: String
+}
+
 type Mutation {
   signup(
     username: String!
@@ -18,6 +22,7 @@ type Mutation {
     profilePicUrl: String
   ): User!
   signin(email: String!, password: String!): User!
+  requestResetPasswordLink(recipientEmail: String!): SuccessMessage!
 }
 
 type Query {
