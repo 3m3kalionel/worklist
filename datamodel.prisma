@@ -1,0 +1,62 @@
+enum PriorityLevel {
+  Normal
+  Critical
+  Urgent
+}
+
+type User {
+  id: ID! @id
+  username: String! @unique
+  email: String! @unique
+  password: String!
+  phoneNumber: String! @unique
+  profilePicUrl: String
+  authoredTodoLists: [TodoList!] @relation(name: "TodoListAuthor")
+  todoListsContributedTo: [TodoList!] @relation(link: TABLE, name: "TodoListContributors")
+}
+
+type Todo {
+  id: ID! @id
+  content: String!
+  dueDate: DateTime
+  isCompleted: Boolean! @default(value: false)
+  belongsTo: TodoList! @relation(name: "TodoTasks")
+}
+
+type Label {
+  id: ID! @id
+  name: String! @unique
+}
+
+type TodoList {
+  id: ID! @id
+  author: User! @relation(link: INLINE, name: "TodoListAuthor")
+  title: String
+  contributors: [User]! @relation(name: "TodoListContributors")
+  tasks: [Todo]! @scalarList(strategy: RELATION) @relation(onDelete: CASCADE name: "TodoTasks")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  priorityLevel: PriorityLevel  @default(value: Normal)
+  labels: [Label]! @scalarList(strategy: RELATION) @relation(name: "TodoLabels")
+  isPinned: Boolean! @default(value: false)
+}
+
+type TodoListAuthor @relationTable {
+  user: User!
+  todoList: TodoList!
+}
+
+type TodoListContributors @relationTable {
+  user: User!
+  todoList: TodoList!
+}
+
+type TodoTasks @relationTable {
+  task: Todo!
+  todoList: TodoList!
+}
+
+type TodoLabels @relationTable {
+  label: Label!
+  todoLIst: TodoList!
+}

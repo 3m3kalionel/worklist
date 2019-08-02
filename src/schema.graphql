@@ -1,0 +1,24 @@
+# import * from './generated/prisma.graphql';
+
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  profilePicUrl: String
+  authoredTodoLists: [TodoList!]
+  todoListsContributedTo: [TodoList!]
+}
+
+type Mutation {
+  signup(
+    username: String!
+    email: String!
+    password: String!
+    phoneNumber: String!
+    profilePicUrl: String
+  ): User!
+}
+
+type Query {
+  hi: String!
+}
