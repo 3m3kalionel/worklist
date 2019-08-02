@@ -1,0 +1,2131 @@
+# source: https://eu1.prisma.sh/chukwuemeka-lionel-okoro-b9a4db/worklist/dev
+# timestamp: Fri Aug 02 2019 12:18:08 GMT+0100 (West Africa Standard Time)
+
+type AggregateLabel {
+  count: Int!
+}
+
+type AggregateTodo {
+  count: Int!
+}
+
+type AggregateTodoList {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type BatchPayload {
+  """The number of nodes that have been affected by the Batch operation."""
+  count: Long!
+}
+
+scalar DateTime
+
+type Label implements Node {
+  id: ID!
+  name: String!
+}
+
+"""A connection to a list of items."""
+type LabelConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [LabelEdge]!
+  aggregate: AggregateLabel!
+}
+
+input LabelCreateInput {
+  id: ID
+  name: String!
+}
+
+input LabelCreateManyInput {
+  create: [LabelCreateInput!]
+  connect: [LabelWhereUniqueInput!]
+}
+
+"""An edge in a connection."""
+type LabelEdge {
+  """The item at the end of the edge."""
+  node: Label!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum LabelOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+type LabelPreviousValues {
+  id: ID!
+  name: String!
+}
+
+input LabelScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [LabelScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [LabelScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [LabelScalarWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+}
+
+type LabelSubscriptionPayload {
+  mutation: MutationType!
+  node: Label
+  updatedFields: [String!]
+  previousValues: LabelPreviousValues
+}
+
+input LabelSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [LabelSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [LabelSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [LabelSubscriptionWhereInput!]
+
+  """The subscription event gets dispatched when it's listed in mutation_in"""
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: LabelWhereInput
+}
+
+input LabelUpdateDataInput {
+  name: String
+}
+
+input LabelUpdateInput {
+  name: String
+}
+
+input LabelUpdateManyDataInput {
+  name: String
+}
+
+input LabelUpdateManyInput {
+  create: [LabelCreateInput!]
+  connect: [LabelWhereUniqueInput!]
+  set: [LabelWhereUniqueInput!]
+  disconnect: [LabelWhereUniqueInput!]
+  delete: [LabelWhereUniqueInput!]
+  update: [LabelUpdateWithWhereUniqueNestedInput!]
+  updateMany: [LabelUpdateManyWithWhereNestedInput!]
+  deleteMany: [LabelScalarWhereInput!]
+  upsert: [LabelUpsertWithWhereUniqueNestedInput!]
+}
+
+input LabelUpdateManyMutationInput {
+  name: String
+}
+
+input LabelUpdateManyWithWhereNestedInput {
+  where: LabelScalarWhereInput!
+  data: LabelUpdateManyDataInput!
+}
+
+input LabelUpdateWithWhereUniqueNestedInput {
+  where: LabelWhereUniqueInput!
+  data: LabelUpdateDataInput!
+}
+
+input LabelUpsertWithWhereUniqueNestedInput {
+  where: LabelWhereUniqueInput!
+  update: LabelUpdateDataInput!
+  create: LabelCreateInput!
+}
+
+input LabelWhereInput {
+  """Logical AND on all given filters."""
+  AND: [LabelWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [LabelWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [LabelWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+}
+
+input LabelWhereUniqueInput {
+  id: ID
+  name: String
+}
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values.
+Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Mutation {
+  createUser(data: UserCreateInput!): User!
+  createTodo(data: TodoCreateInput!): Todo!
+  createTodoList(data: TodoListCreateInput!): TodoList!
+  createLabel(data: LabelCreateInput!): Label!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateTodo(data: TodoUpdateInput!, where: TodoWhereUniqueInput!): Todo
+  updateTodoList(data: TodoListUpdateInput!, where: TodoListWhereUniqueInput!): TodoList
+  updateLabel(data: LabelUpdateInput!, where: LabelWhereUniqueInput!): Label
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteTodo(where: TodoWhereUniqueInput!): Todo
+  deleteTodoList(where: TodoListWhereUniqueInput!): TodoList
+  deleteLabel(where: LabelWhereUniqueInput!): Label
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  upsertTodo(where: TodoWhereUniqueInput!, create: TodoCreateInput!, update: TodoUpdateInput!): Todo!
+  upsertTodoList(where: TodoListWhereUniqueInput!, create: TodoListCreateInput!, update: TodoListUpdateInput!): TodoList!
+  upsertLabel(where: LabelWhereUniqueInput!, create: LabelCreateInput!, update: LabelUpdateInput!): Label!
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  updateManyTodoes(data: TodoUpdateManyMutationInput!, where: TodoWhereInput): BatchPayload!
+  updateManyTodoLists(data: TodoListUpdateManyMutationInput!, where: TodoListWhereInput): BatchPayload!
+  updateManyLabels(data: LabelUpdateManyMutationInput!, where: LabelWhereInput): BatchPayload!
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+  deleteManyTodoes(where: TodoWhereInput): BatchPayload!
+  deleteManyTodoLists(where: TodoListWhereInput): BatchPayload!
+  deleteManyLabels(where: LabelWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+enum PriorityLevel {
+  Normal
+  Critical
+  Urgent
+}
+
+type Query {
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  todoes(where: TodoWhereInput, orderBy: TodoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Todo]!
+  todoLists(where: TodoListWhereInput, orderBy: TodoListOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TodoList]!
+  labels(where: LabelWhereInput, orderBy: LabelOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Label]!
+  user(where: UserWhereUniqueInput!): User
+  todo(where: TodoWhereUniqueInput!): Todo
+  todoList(where: TodoListWhereUniqueInput!): TodoList
+  label(where: LabelWhereUniqueInput!): Label
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  todoesConnection(where: TodoWhereInput, orderBy: TodoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TodoConnection!
+  todoListsConnection(where: TodoListWhereInput, orderBy: TodoListOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TodoListConnection!
+  labelsConnection(where: LabelWhereInput, orderBy: LabelOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LabelConnection!
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+}
+
+type Subscription {
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+  todo(where: TodoSubscriptionWhereInput): TodoSubscriptionPayload
+  todoList(where: TodoListSubscriptionWhereInput): TodoListSubscriptionPayload
+  label(where: LabelSubscriptionWhereInput): LabelSubscriptionPayload
+}
+
+type Todo implements Node {
+  id: ID!
+  content: String!
+  dueDate: DateTime
+  isCompleted: Boolean!
+  belongsTo: TodoList!
+}
+
+"""A connection to a list of items."""
+type TodoConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [TodoEdge]!
+  aggregate: AggregateTodo!
+}
+
+input TodoCreateInput {
+  id: ID
+  content: String!
+  dueDate: DateTime
+  isCompleted: Boolean
+  belongsTo: TodoListCreateOneWithoutTasksInput!
+}
+
+input TodoCreateManyWithoutBelongsToInput {
+  create: [TodoCreateWithoutBelongsToInput!]
+  connect: [TodoWhereUniqueInput!]
+}
+
+input TodoCreateWithoutBelongsToInput {
+  id: ID
+  content: String!
+  dueDate: DateTime
+  isCompleted: Boolean
+}
+
+"""An edge in a connection."""
+type TodoEdge {
+  """The item at the end of the edge."""
+  node: Todo!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+type TodoList implements Node {
+  id: ID!
+  author: User!
+  title: String
+  contributors(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
+  tasks(where: TodoWhereInput, orderBy: TodoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Todo!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  priorityLevel: PriorityLevel
+  labels(where: LabelWhereInput, orderBy: LabelOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Label!]
+  isPinned: Boolean!
+}
+
+"""A connection to a list of items."""
+type TodoListConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [TodoListEdge]!
+  aggregate: AggregateTodoList!
+}
+
+input TodoListCreateInput {
+  id: ID
+  title: String
+  priorityLevel: PriorityLevel
+  isPinned: Boolean
+  author: UserCreateOneWithoutAuthoredTodoListsInput!
+  contributors: UserCreateManyWithoutTodoListsContributedToInput
+  tasks: TodoCreateManyWithoutBelongsToInput
+  labels: LabelCreateManyInput
+}
+
+input TodoListCreateManyWithoutAuthorInput {
+  create: [TodoListCreateWithoutAuthorInput!]
+  connect: [TodoListWhereUniqueInput!]
+}
+
+input TodoListCreateManyWithoutContributorsInput {
+  create: [TodoListCreateWithoutContributorsInput!]
+  connect: [TodoListWhereUniqueInput!]
+}
+
+input TodoListCreateOneWithoutTasksInput {
+  create: TodoListCreateWithoutTasksInput
+  connect: TodoListWhereUniqueInput
+}
+
+input TodoListCreateWithoutAuthorInput {
+  id: ID
+  title: String
+  priorityLevel: PriorityLevel
+  isPinned: Boolean
+  contributors: UserCreateManyWithoutTodoListsContributedToInput
+  tasks: TodoCreateManyWithoutBelongsToInput
+  labels: LabelCreateManyInput
+}
+
+input TodoListCreateWithoutContributorsInput {
+  id: ID
+  title: String
+  priorityLevel: PriorityLevel
+  isPinned: Boolean
+  author: UserCreateOneWithoutAuthoredTodoListsInput!
+  tasks: TodoCreateManyWithoutBelongsToInput
+  labels: LabelCreateManyInput
+}
+
+input TodoListCreateWithoutTasksInput {
+  id: ID
+  title: String
+  priorityLevel: PriorityLevel
+  isPinned: Boolean
+  author: UserCreateOneWithoutAuthoredTodoListsInput!
+  contributors: UserCreateManyWithoutTodoListsContributedToInput
+  labels: LabelCreateManyInput
+}
+
+"""An edge in a connection."""
+type TodoListEdge {
+  """The item at the end of the edge."""
+  node: TodoList!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum TodoListOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  priorityLevel_ASC
+  priorityLevel_DESC
+  isPinned_ASC
+  isPinned_DESC
+}
+
+type TodoListPreviousValues {
+  id: ID!
+  title: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  priorityLevel: PriorityLevel
+  isPinned: Boolean!
+}
+
+input TodoListScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TodoListScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TodoListScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TodoListScalarWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  title: String
+
+  """All values that are not equal to given value."""
+  title_not: String
+
+  """All values that are contained in given list."""
+  title_in: [String!]
+
+  """All values that are not contained in given list."""
+  title_not_in: [String!]
+
+  """All values less than the given value."""
+  title_lt: String
+
+  """All values less than or equal the given value."""
+  title_lte: String
+
+  """All values greater than the given value."""
+  title_gt: String
+
+  """All values greater than or equal the given value."""
+  title_gte: String
+
+  """All values containing the given string."""
+  title_contains: String
+
+  """All values not containing the given string."""
+  title_not_contains: String
+
+  """All values starting with the given string."""
+  title_starts_with: String
+
+  """All values not starting with the given string."""
+  title_not_starts_with: String
+
+  """All values ending with the given string."""
+  title_ends_with: String
+
+  """All values not ending with the given string."""
+  title_not_ends_with: String
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """All values that are not equal to given value."""
+  updatedAt_not: DateTime
+
+  """All values that are contained in given list."""
+  updatedAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  updatedAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  updatedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updatedAt_lte: DateTime
+
+  """All values greater than the given value."""
+  updatedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updatedAt_gte: DateTime
+  priorityLevel: PriorityLevel
+
+  """All values that are not equal to given value."""
+  priorityLevel_not: PriorityLevel
+
+  """All values that are contained in given list."""
+  priorityLevel_in: [PriorityLevel!]
+
+  """All values that are not contained in given list."""
+  priorityLevel_not_in: [PriorityLevel!]
+  isPinned: Boolean
+
+  """All values that are not equal to given value."""
+  isPinned_not: Boolean
+}
+
+type TodoListSubscriptionPayload {
+  mutation: MutationType!
+  node: TodoList
+  updatedFields: [String!]
+  previousValues: TodoListPreviousValues
+}
+
+input TodoListSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TodoListSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TodoListSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TodoListSubscriptionWhereInput!]
+
+  """The subscription event gets dispatched when it's listed in mutation_in"""
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: TodoListWhereInput
+}
+
+input TodoListUpdateInput {
+  title: String
+  priorityLevel: PriorityLevel
+  isPinned: Boolean
+  author: UserUpdateOneRequiredWithoutAuthoredTodoListsInput
+  contributors: UserUpdateManyWithoutTodoListsContributedToInput
+  tasks: TodoUpdateManyWithoutBelongsToInput
+  labels: LabelUpdateManyInput
+}
+
+input TodoListUpdateManyDataInput {
+  title: String
+  priorityLevel: PriorityLevel
+  isPinned: Boolean
+}
+
+input TodoListUpdateManyMutationInput {
+  title: String
+  priorityLevel: PriorityLevel
+  isPinned: Boolean
+}
+
+input TodoListUpdateManyWithoutAuthorInput {
+  create: [TodoListCreateWithoutAuthorInput!]
+  connect: [TodoListWhereUniqueInput!]
+  set: [TodoListWhereUniqueInput!]
+  disconnect: [TodoListWhereUniqueInput!]
+  delete: [TodoListWhereUniqueInput!]
+  update: [TodoListUpdateWithWhereUniqueWithoutAuthorInput!]
+  updateMany: [TodoListUpdateManyWithWhereNestedInput!]
+  deleteMany: [TodoListScalarWhereInput!]
+  upsert: [TodoListUpsertWithWhereUniqueWithoutAuthorInput!]
+}
+
+input TodoListUpdateManyWithoutContributorsInput {
+  create: [TodoListCreateWithoutContributorsInput!]
+  connect: [TodoListWhereUniqueInput!]
+  set: [TodoListWhereUniqueInput!]
+  disconnect: [TodoListWhereUniqueInput!]
+  delete: [TodoListWhereUniqueInput!]
+  update: [TodoListUpdateWithWhereUniqueWithoutContributorsInput!]
+  updateMany: [TodoListUpdateManyWithWhereNestedInput!]
+  deleteMany: [TodoListScalarWhereInput!]
+  upsert: [TodoListUpsertWithWhereUniqueWithoutContributorsInput!]
+}
+
+input TodoListUpdateManyWithWhereNestedInput {
+  where: TodoListScalarWhereInput!
+  data: TodoListUpdateManyDataInput!
+}
+
+input TodoListUpdateOneRequiredWithoutTasksInput {
+  create: TodoListCreateWithoutTasksInput
+  connect: TodoListWhereUniqueInput
+  update: TodoListUpdateWithoutTasksDataInput
+  upsert: TodoListUpsertWithoutTasksInput
+}
+
+input TodoListUpdateWithoutAuthorDataInput {
+  title: String
+  priorityLevel: PriorityLevel
+  isPinned: Boolean
+  contributors: UserUpdateManyWithoutTodoListsContributedToInput
+  tasks: TodoUpdateManyWithoutBelongsToInput
+  labels: LabelUpdateManyInput
+}
+
+input TodoListUpdateWithoutContributorsDataInput {
+  title: String
+  priorityLevel: PriorityLevel
+  isPinned: Boolean
+  author: UserUpdateOneRequiredWithoutAuthoredTodoListsInput
+  tasks: TodoUpdateManyWithoutBelongsToInput
+  labels: LabelUpdateManyInput
+}
+
+input TodoListUpdateWithoutTasksDataInput {
+  title: String
+  priorityLevel: PriorityLevel
+  isPinned: Boolean
+  author: UserUpdateOneRequiredWithoutAuthoredTodoListsInput
+  contributors: UserUpdateManyWithoutTodoListsContributedToInput
+  labels: LabelUpdateManyInput
+}
+
+input TodoListUpdateWithWhereUniqueWithoutAuthorInput {
+  where: TodoListWhereUniqueInput!
+  data: TodoListUpdateWithoutAuthorDataInput!
+}
+
+input TodoListUpdateWithWhereUniqueWithoutContributorsInput {
+  where: TodoListWhereUniqueInput!
+  data: TodoListUpdateWithoutContributorsDataInput!
+}
+
+input TodoListUpsertWithoutTasksInput {
+  update: TodoListUpdateWithoutTasksDataInput!
+  create: TodoListCreateWithoutTasksInput!
+}
+
+input TodoListUpsertWithWhereUniqueWithoutAuthorInput {
+  where: TodoListWhereUniqueInput!
+  update: TodoListUpdateWithoutAuthorDataInput!
+  create: TodoListCreateWithoutAuthorInput!
+}
+
+input TodoListUpsertWithWhereUniqueWithoutContributorsInput {
+  where: TodoListWhereUniqueInput!
+  update: TodoListUpdateWithoutContributorsDataInput!
+  create: TodoListCreateWithoutContributorsInput!
+}
+
+input TodoListWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TodoListWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TodoListWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TodoListWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  title: String
+
+  """All values that are not equal to given value."""
+  title_not: String
+
+  """All values that are contained in given list."""
+  title_in: [String!]
+
+  """All values that are not contained in given list."""
+  title_not_in: [String!]
+
+  """All values less than the given value."""
+  title_lt: String
+
+  """All values less than or equal the given value."""
+  title_lte: String
+
+  """All values greater than the given value."""
+  title_gt: String
+
+  """All values greater than or equal the given value."""
+  title_gte: String
+
+  """All values containing the given string."""
+  title_contains: String
+
+  """All values not containing the given string."""
+  title_not_contains: String
+
+  """All values starting with the given string."""
+  title_starts_with: String
+
+  """All values not starting with the given string."""
+  title_not_starts_with: String
+
+  """All values ending with the given string."""
+  title_ends_with: String
+
+  """All values not ending with the given string."""
+  title_not_ends_with: String
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """All values that are not equal to given value."""
+  updatedAt_not: DateTime
+
+  """All values that are contained in given list."""
+  updatedAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  updatedAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  updatedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updatedAt_lte: DateTime
+
+  """All values greater than the given value."""
+  updatedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updatedAt_gte: DateTime
+  priorityLevel: PriorityLevel
+
+  """All values that are not equal to given value."""
+  priorityLevel_not: PriorityLevel
+
+  """All values that are contained in given list."""
+  priorityLevel_in: [PriorityLevel!]
+
+  """All values that are not contained in given list."""
+  priorityLevel_not_in: [PriorityLevel!]
+  isPinned: Boolean
+
+  """All values that are not equal to given value."""
+  isPinned_not: Boolean
+  author: UserWhereInput
+  contributors_every: UserWhereInput
+  contributors_some: UserWhereInput
+  contributors_none: UserWhereInput
+  tasks_every: TodoWhereInput
+  tasks_some: TodoWhereInput
+  tasks_none: TodoWhereInput
+  labels_every: LabelWhereInput
+  labels_some: LabelWhereInput
+  labels_none: LabelWhereInput
+}
+
+input TodoListWhereUniqueInput {
+  id: ID
+}
+
+enum TodoOrderByInput {
+  id_ASC
+  id_DESC
+  content_ASC
+  content_DESC
+  dueDate_ASC
+  dueDate_DESC
+  isCompleted_ASC
+  isCompleted_DESC
+}
+
+type TodoPreviousValues {
+  id: ID!
+  content: String!
+  dueDate: DateTime
+  isCompleted: Boolean!
+}
+
+input TodoScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TodoScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TodoScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TodoScalarWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  content: String
+
+  """All values that are not equal to given value."""
+  content_not: String
+
+  """All values that are contained in given list."""
+  content_in: [String!]
+
+  """All values that are not contained in given list."""
+  content_not_in: [String!]
+
+  """All values less than the given value."""
+  content_lt: String
+
+  """All values less than or equal the given value."""
+  content_lte: String
+
+  """All values greater than the given value."""
+  content_gt: String
+
+  """All values greater than or equal the given value."""
+  content_gte: String
+
+  """All values containing the given string."""
+  content_contains: String
+
+  """All values not containing the given string."""
+  content_not_contains: String
+
+  """All values starting with the given string."""
+  content_starts_with: String
+
+  """All values not starting with the given string."""
+  content_not_starts_with: String
+
+  """All values ending with the given string."""
+  content_ends_with: String
+
+  """All values not ending with the given string."""
+  content_not_ends_with: String
+  dueDate: DateTime
+
+  """All values that are not equal to given value."""
+  dueDate_not: DateTime
+
+  """All values that are contained in given list."""
+  dueDate_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  dueDate_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  dueDate_lt: DateTime
+
+  """All values less than or equal the given value."""
+  dueDate_lte: DateTime
+
+  """All values greater than the given value."""
+  dueDate_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  dueDate_gte: DateTime
+  isCompleted: Boolean
+
+  """All values that are not equal to given value."""
+  isCompleted_not: Boolean
+}
+
+type TodoSubscriptionPayload {
+  mutation: MutationType!
+  node: Todo
+  updatedFields: [String!]
+  previousValues: TodoPreviousValues
+}
+
+input TodoSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TodoSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TodoSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TodoSubscriptionWhereInput!]
+
+  """The subscription event gets dispatched when it's listed in mutation_in"""
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: TodoWhereInput
+}
+
+input TodoUpdateInput {
+  content: String
+  dueDate: DateTime
+  isCompleted: Boolean
+  belongsTo: TodoListUpdateOneRequiredWithoutTasksInput
+}
+
+input TodoUpdateManyDataInput {
+  content: String
+  dueDate: DateTime
+  isCompleted: Boolean
+}
+
+input TodoUpdateManyMutationInput {
+  content: String
+  dueDate: DateTime
+  isCompleted: Boolean
+}
+
+input TodoUpdateManyWithoutBelongsToInput {
+  create: [TodoCreateWithoutBelongsToInput!]
+  connect: [TodoWhereUniqueInput!]
+  set: [TodoWhereUniqueInput!]
+  disconnect: [TodoWhereUniqueInput!]
+  delete: [TodoWhereUniqueInput!]
+  update: [TodoUpdateWithWhereUniqueWithoutBelongsToInput!]
+  updateMany: [TodoUpdateManyWithWhereNestedInput!]
+  deleteMany: [TodoScalarWhereInput!]
+  upsert: [TodoUpsertWithWhereUniqueWithoutBelongsToInput!]
+}
+
+input TodoUpdateManyWithWhereNestedInput {
+  where: TodoScalarWhereInput!
+  data: TodoUpdateManyDataInput!
+}
+
+input TodoUpdateWithoutBelongsToDataInput {
+  content: String
+  dueDate: DateTime
+  isCompleted: Boolean
+}
+
+input TodoUpdateWithWhereUniqueWithoutBelongsToInput {
+  where: TodoWhereUniqueInput!
+  data: TodoUpdateWithoutBelongsToDataInput!
+}
+
+input TodoUpsertWithWhereUniqueWithoutBelongsToInput {
+  where: TodoWhereUniqueInput!
+  update: TodoUpdateWithoutBelongsToDataInput!
+  create: TodoCreateWithoutBelongsToInput!
+}
+
+input TodoWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TodoWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TodoWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TodoWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  content: String
+
+  """All values that are not equal to given value."""
+  content_not: String
+
+  """All values that are contained in given list."""
+  content_in: [String!]
+
+  """All values that are not contained in given list."""
+  content_not_in: [String!]
+
+  """All values less than the given value."""
+  content_lt: String
+
+  """All values less than or equal the given value."""
+  content_lte: String
+
+  """All values greater than the given value."""
+  content_gt: String
+
+  """All values greater than or equal the given value."""
+  content_gte: String
+
+  """All values containing the given string."""
+  content_contains: String
+
+  """All values not containing the given string."""
+  content_not_contains: String
+
+  """All values starting with the given string."""
+  content_starts_with: String
+
+  """All values not starting with the given string."""
+  content_not_starts_with: String
+
+  """All values ending with the given string."""
+  content_ends_with: String
+
+  """All values not ending with the given string."""
+  content_not_ends_with: String
+  dueDate: DateTime
+
+  """All values that are not equal to given value."""
+  dueDate_not: DateTime
+
+  """All values that are contained in given list."""
+  dueDate_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  dueDate_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  dueDate_lt: DateTime
+
+  """All values less than or equal the given value."""
+  dueDate_lte: DateTime
+
+  """All values greater than the given value."""
+  dueDate_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  dueDate_gte: DateTime
+  isCompleted: Boolean
+
+  """All values that are not equal to given value."""
+  isCompleted_not: Boolean
+  belongsTo: TodoListWhereInput
+}
+
+input TodoWhereUniqueInput {
+  id: ID
+}
+
+type User implements Node {
+  id: ID!
+  username: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  profilePicUrl: String
+  authoredTodoLists(where: TodoListWhereInput, orderBy: TodoListOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TodoList!]
+  todoListsContributedTo(where: TodoListWhereInput, orderBy: TodoListOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TodoList!]
+}
+
+"""A connection to a list of items."""
+type UserConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  id: ID
+  username: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  profilePicUrl: String
+  authoredTodoLists: TodoListCreateManyWithoutAuthorInput
+  todoListsContributedTo: TodoListCreateManyWithoutContributorsInput
+}
+
+input UserCreateManyWithoutTodoListsContributedToInput {
+  create: [UserCreateWithoutTodoListsContributedToInput!]
+  connect: [UserWhereUniqueInput!]
+}
+
+input UserCreateOneWithoutAuthoredTodoListsInput {
+  create: UserCreateWithoutAuthoredTodoListsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutAuthoredTodoListsInput {
+  id: ID
+  username: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  profilePicUrl: String
+  todoListsContributedTo: TodoListCreateManyWithoutContributorsInput
+}
+
+input UserCreateWithoutTodoListsContributedToInput {
+  id: ID
+  username: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  profilePicUrl: String
+  authoredTodoLists: TodoListCreateManyWithoutAuthorInput
+}
+
+"""An edge in a connection."""
+type UserEdge {
+  """The item at the end of the edge."""
+  node: User!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  username_ASC
+  username_DESC
+  email_ASC
+  email_DESC
+  password_ASC
+  password_DESC
+  phoneNumber_ASC
+  phoneNumber_DESC
+  profilePicUrl_ASC
+  profilePicUrl_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  username: String!
+  email: String!
+  password: String!
+  phoneNumber: String!
+  profilePicUrl: String
+}
+
+input UserScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [UserScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [UserScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [UserScalarWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  username: String
+
+  """All values that are not equal to given value."""
+  username_not: String
+
+  """All values that are contained in given list."""
+  username_in: [String!]
+
+  """All values that are not contained in given list."""
+  username_not_in: [String!]
+
+  """All values less than the given value."""
+  username_lt: String
+
+  """All values less than or equal the given value."""
+  username_lte: String
+
+  """All values greater than the given value."""
+  username_gt: String
+
+  """All values greater than or equal the given value."""
+  username_gte: String
+
+  """All values containing the given string."""
+  username_contains: String
+
+  """All values not containing the given string."""
+  username_not_contains: String
+
+  """All values starting with the given string."""
+  username_starts_with: String
+
+  """All values not starting with the given string."""
+  username_not_starts_with: String
+
+  """All values ending with the given string."""
+  username_ends_with: String
+
+  """All values not ending with the given string."""
+  username_not_ends_with: String
+  email: String
+
+  """All values that are not equal to given value."""
+  email_not: String
+
+  """All values that are contained in given list."""
+  email_in: [String!]
+
+  """All values that are not contained in given list."""
+  email_not_in: [String!]
+
+  """All values less than the given value."""
+  email_lt: String
+
+  """All values less than or equal the given value."""
+  email_lte: String
+
+  """All values greater than the given value."""
+  email_gt: String
+
+  """All values greater than or equal the given value."""
+  email_gte: String
+
+  """All values containing the given string."""
+  email_contains: String
+
+  """All values not containing the given string."""
+  email_not_contains: String
+
+  """All values starting with the given string."""
+  email_starts_with: String
+
+  """All values not starting with the given string."""
+  email_not_starts_with: String
+
+  """All values ending with the given string."""
+  email_ends_with: String
+
+  """All values not ending with the given string."""
+  email_not_ends_with: String
+  password: String
+
+  """All values that are not equal to given value."""
+  password_not: String
+
+  """All values that are contained in given list."""
+  password_in: [String!]
+
+  """All values that are not contained in given list."""
+  password_not_in: [String!]
+
+  """All values less than the given value."""
+  password_lt: String
+
+  """All values less than or equal the given value."""
+  password_lte: String
+
+  """All values greater than the given value."""
+  password_gt: String
+
+  """All values greater than or equal the given value."""
+  password_gte: String
+
+  """All values containing the given string."""
+  password_contains: String
+
+  """All values not containing the given string."""
+  password_not_contains: String
+
+  """All values starting with the given string."""
+  password_starts_with: String
+
+  """All values not starting with the given string."""
+  password_not_starts_with: String
+
+  """All values ending with the given string."""
+  password_ends_with: String
+
+  """All values not ending with the given string."""
+  password_not_ends_with: String
+  phoneNumber: String
+
+  """All values that are not equal to given value."""
+  phoneNumber_not: String
+
+  """All values that are contained in given list."""
+  phoneNumber_in: [String!]
+
+  """All values that are not contained in given list."""
+  phoneNumber_not_in: [String!]
+
+  """All values less than the given value."""
+  phoneNumber_lt: String
+
+  """All values less than or equal the given value."""
+  phoneNumber_lte: String
+
+  """All values greater than the given value."""
+  phoneNumber_gt: String
+
+  """All values greater than or equal the given value."""
+  phoneNumber_gte: String
+
+  """All values containing the given string."""
+  phoneNumber_contains: String
+
+  """All values not containing the given string."""
+  phoneNumber_not_contains: String
+
+  """All values starting with the given string."""
+  phoneNumber_starts_with: String
+
+  """All values not starting with the given string."""
+  phoneNumber_not_starts_with: String
+
+  """All values ending with the given string."""
+  phoneNumber_ends_with: String
+
+  """All values not ending with the given string."""
+  phoneNumber_not_ends_with: String
+  profilePicUrl: String
+
+  """All values that are not equal to given value."""
+  profilePicUrl_not: String
+
+  """All values that are contained in given list."""
+  profilePicUrl_in: [String!]
+
+  """All values that are not contained in given list."""
+  profilePicUrl_not_in: [String!]
+
+  """All values less than the given value."""
+  profilePicUrl_lt: String
+
+  """All values less than or equal the given value."""
+  profilePicUrl_lte: String
+
+  """All values greater than the given value."""
+  profilePicUrl_gt: String
+
+  """All values greater than or equal the given value."""
+  profilePicUrl_gte: String
+
+  """All values containing the given string."""
+  profilePicUrl_contains: String
+
+  """All values not containing the given string."""
+  profilePicUrl_not_contains: String
+
+  """All values starting with the given string."""
+  profilePicUrl_starts_with: String
+
+  """All values not starting with the given string."""
+  profilePicUrl_not_starts_with: String
+
+  """All values ending with the given string."""
+  profilePicUrl_ends_with: String
+
+  """All values not ending with the given string."""
+  profilePicUrl_not_ends_with: String
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [UserSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [UserSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [UserSubscriptionWhereInput!]
+
+  """The subscription event gets dispatched when it's listed in mutation_in"""
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+}
+
+input UserUpdateInput {
+  username: String
+  email: String
+  password: String
+  phoneNumber: String
+  profilePicUrl: String
+  authoredTodoLists: TodoListUpdateManyWithoutAuthorInput
+  todoListsContributedTo: TodoListUpdateManyWithoutContributorsInput
+}
+
+input UserUpdateManyDataInput {
+  username: String
+  email: String
+  password: String
+  phoneNumber: String
+  profilePicUrl: String
+}
+
+input UserUpdateManyMutationInput {
+  username: String
+  email: String
+  password: String
+  phoneNumber: String
+  profilePicUrl: String
+}
+
+input UserUpdateManyWithoutTodoListsContributedToInput {
+  create: [UserCreateWithoutTodoListsContributedToInput!]
+  connect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+  disconnect: [UserWhereUniqueInput!]
+  delete: [UserWhereUniqueInput!]
+  update: [UserUpdateWithWhereUniqueWithoutTodoListsContributedToInput!]
+  updateMany: [UserUpdateManyWithWhereNestedInput!]
+  deleteMany: [UserScalarWhereInput!]
+  upsert: [UserUpsertWithWhereUniqueWithoutTodoListsContributedToInput!]
+}
+
+input UserUpdateManyWithWhereNestedInput {
+  where: UserScalarWhereInput!
+  data: UserUpdateManyDataInput!
+}
+
+input UserUpdateOneRequiredWithoutAuthoredTodoListsInput {
+  create: UserCreateWithoutAuthoredTodoListsInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateWithoutAuthoredTodoListsDataInput
+  upsert: UserUpsertWithoutAuthoredTodoListsInput
+}
+
+input UserUpdateWithoutAuthoredTodoListsDataInput {
+  username: String
+  email: String
+  password: String
+  phoneNumber: String
+  profilePicUrl: String
+  todoListsContributedTo: TodoListUpdateManyWithoutContributorsInput
+}
+
+input UserUpdateWithoutTodoListsContributedToDataInput {
+  username: String
+  email: String
+  password: String
+  phoneNumber: String
+  profilePicUrl: String
+  authoredTodoLists: TodoListUpdateManyWithoutAuthorInput
+}
+
+input UserUpdateWithWhereUniqueWithoutTodoListsContributedToInput {
+  where: UserWhereUniqueInput!
+  data: UserUpdateWithoutTodoListsContributedToDataInput!
+}
+
+input UserUpsertWithoutAuthoredTodoListsInput {
+  update: UserUpdateWithoutAuthoredTodoListsDataInput!
+  create: UserCreateWithoutAuthoredTodoListsInput!
+}
+
+input UserUpsertWithWhereUniqueWithoutTodoListsContributedToInput {
+  where: UserWhereUniqueInput!
+  update: UserUpdateWithoutTodoListsContributedToDataInput!
+  create: UserCreateWithoutTodoListsContributedToInput!
+}
+
+input UserWhereInput {
+  """Logical AND on all given filters."""
+  AND: [UserWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [UserWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [UserWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  username: String
+
+  """All values that are not equal to given value."""
+  username_not: String
+
+  """All values that are contained in given list."""
+  username_in: [String!]
+
+  """All values that are not contained in given list."""
+  username_not_in: [String!]
+
+  """All values less than the given value."""
+  username_lt: String
+
+  """All values less than or equal the given value."""
+  username_lte: String
+
+  """All values greater than the given value."""
+  username_gt: String
+
+  """All values greater than or equal the given value."""
+  username_gte: String
+
+  """All values containing the given string."""
+  username_contains: String
+
+  """All values not containing the given string."""
+  username_not_contains: String
+
+  """All values starting with the given string."""
+  username_starts_with: String
+
+  """All values not starting with the given string."""
+  username_not_starts_with: String
+
+  """All values ending with the given string."""
+  username_ends_with: String
+
+  """All values not ending with the given string."""
+  username_not_ends_with: String
+  email: String
+
+  """All values that are not equal to given value."""
+  email_not: String
+
+  """All values that are contained in given list."""
+  email_in: [String!]
+
+  """All values that are not contained in given list."""
+  email_not_in: [String!]
+
+  """All values less than the given value."""
+  email_lt: String
+
+  """All values less than or equal the given value."""
+  email_lte: String
+
+  """All values greater than the given value."""
+  email_gt: String
+
+  """All values greater than or equal the given value."""
+  email_gte: String
+
+  """All values containing the given string."""
+  email_contains: String
+
+  """All values not containing the given string."""
+  email_not_contains: String
+
+  """All values starting with the given string."""
+  email_starts_with: String
+
+  """All values not starting with the given string."""
+  email_not_starts_with: String
+
+  """All values ending with the given string."""
+  email_ends_with: String
+
+  """All values not ending with the given string."""
+  email_not_ends_with: String
+  password: String
+
+  """All values that are not equal to given value."""
+  password_not: String
+
+  """All values that are contained in given list."""
+  password_in: [String!]
+
+  """All values that are not contained in given list."""
+  password_not_in: [String!]
+
+  """All values less than the given value."""
+  password_lt: String
+
+  """All values less than or equal the given value."""
+  password_lte: String
+
+  """All values greater than the given value."""
+  password_gt: String
+
+  """All values greater than or equal the given value."""
+  password_gte: String
+
+  """All values containing the given string."""
+  password_contains: String
+
+  """All values not containing the given string."""
+  password_not_contains: String
+
+  """All values starting with the given string."""
+  password_starts_with: String
+
+  """All values not starting with the given string."""
+  password_not_starts_with: String
+
+  """All values ending with the given string."""
+  password_ends_with: String
+
+  """All values not ending with the given string."""
+  password_not_ends_with: String
+  phoneNumber: String
+
+  """All values that are not equal to given value."""
+  phoneNumber_not: String
+
+  """All values that are contained in given list."""
+  phoneNumber_in: [String!]
+
+  """All values that are not contained in given list."""
+  phoneNumber_not_in: [String!]
+
+  """All values less than the given value."""
+  phoneNumber_lt: String
+
+  """All values less than or equal the given value."""
+  phoneNumber_lte: String
+
+  """All values greater than the given value."""
+  phoneNumber_gt: String
+
+  """All values greater than or equal the given value."""
+  phoneNumber_gte: String
+
+  """All values containing the given string."""
+  phoneNumber_contains: String
+
+  """All values not containing the given string."""
+  phoneNumber_not_contains: String
+
+  """All values starting with the given string."""
+  phoneNumber_starts_with: String
+
+  """All values not starting with the given string."""
+  phoneNumber_not_starts_with: String
+
+  """All values ending with the given string."""
+  phoneNumber_ends_with: String
+
+  """All values not ending with the given string."""
+  phoneNumber_not_ends_with: String
+  profilePicUrl: String
+
+  """All values that are not equal to given value."""
+  profilePicUrl_not: String
+
+  """All values that are contained in given list."""
+  profilePicUrl_in: [String!]
+
+  """All values that are not contained in given list."""
+  profilePicUrl_not_in: [String!]
+
+  """All values less than the given value."""
+  profilePicUrl_lt: String
+
+  """All values less than or equal the given value."""
+  profilePicUrl_lte: String
+
+  """All values greater than the given value."""
+  profilePicUrl_gt: String
+
+  """All values greater than or equal the given value."""
+  profilePicUrl_gte: String
+
+  """All values containing the given string."""
+  profilePicUrl_contains: String
+
+  """All values not containing the given string."""
+  profilePicUrl_not_contains: String
+
+  """All values starting with the given string."""
+  profilePicUrl_starts_with: String
+
+  """All values not starting with the given string."""
+  profilePicUrl_not_starts_with: String
+
+  """All values ending with the given string."""
+  profilePicUrl_ends_with: String
+
+  """All values not ending with the given string."""
+  profilePicUrl_not_ends_with: String
+  authoredTodoLists_every: TodoListWhereInput
+  authoredTodoLists_some: TodoListWhereInput
+  authoredTodoLists_none: TodoListWhereInput
+  todoListsContributedTo_every: TodoListWhereInput
+  todoListsContributedTo_some: TodoListWhereInput
+  todoListsContributedTo_none: TodoListWhereInput
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  username: String
+  email: String
+  phoneNumber: String
+}
