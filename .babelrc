@@ -51,12 +51,8 @@
         {
           "targets": {
             "browsers": ["last 2 Chrome versions"]
-          }
-        },
-        {
-          "preset-env": {
-            "modules": "commonjs"
-          }
+          },
+          "modules": "commonjs"
         }
       ],
       "plugins": [
