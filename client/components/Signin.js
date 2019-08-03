@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React from 'react';
 import { Mutation } from 'react-apollo';
 import Link from 'next/link';
 
