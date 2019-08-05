@@ -46,14 +46,14 @@
     },
     "test": {
       "presets": [
-        "next/babel",
-        "@babel/preset-env",
-        {
-          "targets": {
-            "browsers": ["last 2 Chrome versions"]
-          },
-          "modules": "commonjs"
-        }
+        [
+          "next/babel",
+          {
+            "preset-env": {
+              "modules": "commonjs"
+            }
+          }
+        ]
       ],
       "plugins": [
         [
@@ -67,4 +67,4 @@
       ]
     }
   }
-}
+}  
