@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "10"
+
+install:
+  - npm install
+
+before_script:
+  - ./node_modules/.bin/prisma login
+
+script:
+  - ./node_modules/.bin/prisma deploy
+  - ./node_modules/.bin/graphql get-schema --project db
+  - ./node_modules/.bin/graphql codegen
+  - npm run test
