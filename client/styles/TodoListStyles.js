@@ -11,7 +11,8 @@ const TodoListStyles = styled.div`
   #todo-list-container {
     border: 1px solid ${props => props.theme.paletteGray200};
     border-radius: 8px;
-    max-width: 240px;
+    /* max-width: 240px; */
+    max-width: 600px;
     margin: 16px;
   }
 

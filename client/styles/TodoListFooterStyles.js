@@ -42,7 +42,8 @@ const TodoListFooterStyles = styled.div`
   }
 
   div#visibility-toggle-container {
-    visibility: hidden;
+    /* visibility: hidden; */
+    visibility: visible;
     display: flex;
     width: 100%;
   }

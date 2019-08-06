@@ -3,7 +3,7 @@ import ReactTooltip from 'react-tooltip'
 
 import TodoListFooterStyles from '../styles/TodoListFooterStyles';
 
-const TodoListFooter = ({ query }) => {
+const TodoListFooter = ({ query, onClick }) => {
   const colors = [
     'white',
     'paletteRed',
@@ -51,7 +51,13 @@ const TodoListFooter = ({ query }) => {
               <ReactTooltip />
             </span>
           </div>
-          <div id="close-button-container" className="footer-icon">Close</div>
+          <div
+            id="close-button-container"
+            className="footer-icon"
+            onClick={onClick}
+            >
+              Close
+            </div>
         </div>
       </div>
     </TodoListFooterStyles>
