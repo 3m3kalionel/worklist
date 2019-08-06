@@ -23,8 +23,17 @@ type Mutation {
   ): User!
   signin(email: String!, password: String!): User!
   requestResetPasswordLink(recipientEmail: String!): SuccessMessage!
+
+  createTodoList(
+    title: String
+    priorityLevel: PriorityLevel
+    isPinned: Boolean!
+    labels: [LabelWhereUniqueInput]
+    contributors: [String]
+    tasks: [CustomTodoMutationInput]
+  ): TodoList!
 }
 
 type Query {
-  hi: String!
+  getTodoLists(where: TodoListWhereInput, orderBy: TodoListOrderByInput, skip: Int, first: Int): [TodoList]!
 }

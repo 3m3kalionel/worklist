@@ -74,7 +74,28 @@ const Mutation = {
 
     await sendMail(recipientEmail, 'password reset link', mailResetTemplate);
 
-    return 'Check your email for a reset link';
+    return { message: 'Check your email for a reset link' };
+  },
+
+  async createTodoList(parent, args, ctx, info) {
+    const { tasks, labels } = args;
+
+    return await ctx.db.mutation.createTodoList({
+      data: {
+        ...args,
+        author: {
+          connect: {
+            id: "cjyu3mkpu4lbn0b53tbkhynqc"
+          }
+        },
+        tasks: {
+          create: tasks
+        },
+        labels: {
+          connect: labels,
+        }
+      }
+    }, info)
   },
 };
 

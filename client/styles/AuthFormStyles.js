@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AuthForm = styled.div`
+const AuthFormStyles = styled.div`
   *, *:before, *:after {
     box-sizing: border-box;
   }
@@ -93,4 +93,4 @@ const AuthForm = styled.div`
   }
 `;
 
-export default AuthForm;
+export default AuthFormStyles;

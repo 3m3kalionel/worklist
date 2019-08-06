@@ -2,7 +2,7 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 import Link from 'next/link';
 
-import AuthForm from '../styles/AuthForm';
+import AuthFormStyles from '../styles/AuthFormStyles';
 import { WithForm } from './HOC';
 
 import SIGN_IN_MUTATION from '../graphql/mutations/Signin';
@@ -20,7 +20,7 @@ const Signin = props => {
         <form
           onSubmit={onSubmit(signin, 'signin')}
         >
-          <AuthForm>
+          <AuthFormStyles>
             <div>
               <div id="authentication-form">
                 <div id="form-body">
@@ -60,7 +60,7 @@ const Signin = props => {
                 </div>
               </div>
             </div>
-          </AuthForm>
+          </AuthFormStyles>
         </form>
       )}
     </Mutation>

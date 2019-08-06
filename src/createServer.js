@@ -1,6 +1,7 @@
 import { GraphQLServer } from 'graphql-yoga';
 
 import Mutation from './resolvers/Mutation';
+import Query from './resolvers/Query';
 import db from './db';
 
 const createServer = () => {
@@ -8,6 +9,7 @@ const createServer = () => {
     typeDefs: 'src/schema.graphql',
     resolvers: {
       Mutation,
+      Query,
     },
     resolverValidationOptions: {
       requireResolversForResolveType: false,

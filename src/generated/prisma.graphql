@@ -889,6 +889,13 @@ input TodoListUpsertWithWhereUniqueWithoutContributorsInput {
   create: TodoListCreateWithoutContributorsInput!
 }
 
+input CustomTodoMutationInput {
+  id: ID
+  content: String
+  dueDate: DateTime
+  isCompleted: Boolean
+}
+
 input TodoListWhereInput {
   """Logical AND on all given filters."""
   AND: [TodoListWhereInput!]

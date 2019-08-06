@@ -17,6 +17,7 @@ const theme = {
   paletteBrown: "#e6c9a8",
   palettePink: "#fdcfe8",
   paletteGray: "#e8eaed",
+  paletteGray200: "#c4c4c4",
   boxShadow: "0 12px 24px 0 rgba(0, 0, 0, 0.09)",
   authFormBoxShadow:
     "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)",
@@ -29,8 +30,6 @@ const StyledPage = styled.div`
   background: ${props => props.theme.offWhite};
   color: ${props => props.theme.black};
 
-  display: flex;
-  justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
   height: 100vh;
@@ -39,7 +38,6 @@ const StyledPage = styled.div`
 const PageContent = styled.div`
   max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
 `;
 
 injectGlobal`
