@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 
-import AuthForm from '../styles/AuthForm';
+import AuthFormStyles from '../styles/AuthFormStyles';
 import { WithForm } from '../components/HOC';
 import REQUEST_RESET_MUTATION from '../graphql/mutations/RequestReset';
 
@@ -19,7 +19,7 @@ const WrappedComponent = props => {
           <form
             onSubmit={onSubmit(requestResetPasswordLink, 'requestreset')}
           >
-            <AuthForm>
+            <AuthFormStyles>
               <div>
                 <div id="authentication-form">
                   <div id="form-body">
@@ -47,7 +47,7 @@ const WrappedComponent = props => {
                   </div>
                 </div>
               </div>
-            </AuthForm>
+            </AuthFormStyles>
           </form>
         </div>
       )}
