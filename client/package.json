@@ -1,0 +1,35 @@
+{
+  "name": "worklist-client",
+  "version": "1.0.0",
+  "description": "frontend for worklist application",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "next -p 7777",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "todolists",
+    "todos"
+  ],
+  "author": "3m3kalionel",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-boost": "^0.1.16",
+    "apollo-client": "^2.4.2",
+    "babel-plugin-styled-components": "^1.7.1",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.9.2",
+    "next": "^9.0.2",
+    "next-with-apollo": "^3.4.0",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.2",
+    "react-dom": "^16.8.6",
+    "react-tooltip": "^3.10.0",
+    "styled-components": "^3.4.9"
+  }
+}
