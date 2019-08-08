@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import Router from 'next/router'
+import Router from 'next/router';
+
+import Error from './Error';
 
 export const WithForm = WrappedComponent => props => {
   const { initialState } = props
@@ -10,21 +12,19 @@ export const WithForm = WrappedComponent => props => {
     setState({ ...state, ...newValues });
   };
 
-  const clearState = () => {
-    setState({})
-  }
-
   const handleChange = event => {
     updateState({ [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (action, route) => async event => {
-    event.preventDefault();
-    await action(state);
-    setState(initialState);
-    if (route !== 'requestreset') {
-      Router.push('/dashboard') 
-    }
+    try {
+      event.preventDefault();
+      await action(state);
+      setState(initialState);
+      if (route !== 'requestreset') {
+        Router.push('/dashboard') 
+      }
+    } catch(error) {() => {}}
   }
 
   return (
@@ -34,6 +34,8 @@ export const WithForm = WrappedComponent => props => {
       onSubmit={handleSubmit}
       onError={setError}
       values={state}
-    />
+    >
+      {error && <Error error={error} />}
+    </WrappedComponent>
   )
 }

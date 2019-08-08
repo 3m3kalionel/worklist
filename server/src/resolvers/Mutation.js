@@ -23,7 +23,7 @@ const Mutation = {
     const user = await ctx.db.query.user({ where: { email } });
 
     if (!user) {
-      throw new Error(`No user found for this email: ${email}`);
+      throw new Error(`No user found for this email`);
     }
     const isValidPassword = await bcrypt.compare(password, user.password);
     if (!isValidPassword) {
@@ -37,7 +37,7 @@ const Mutation = {
     const { recipientEmail } = args;
     const user = await ctx.db.query.user({ where: { email: recipientEmail }});
     if (!user) {
-      throw new Error(`User not found for the email ${recipientEmail}`);
+      throw new Error(`No user found for this email`);
     }
 
     const passwordResetToken = jwt.sign(

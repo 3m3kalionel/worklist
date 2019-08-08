@@ -23,7 +23,8 @@ const theme = {
     "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)",
   maxWidth: "600px",
   offWhite: "#EDEDED",
-  offWhite2: "#FAFAFA"
+  offWhite2: "#FAFAFA",
+  darkGreen: "#19B188"
 };
 
 const StyledPage = styled.div`
