@@ -6,8 +6,8 @@ const AuthFormStyles = styled.div`
   }
 
   #authentication-form {
-    width: 100%;
     max-width: 600px;
+    min-width: 350px;
     padding: 20px;
     background: ${props => props.theme.white};
     display: flex;
@@ -25,6 +25,11 @@ const AuthFormStyles = styled.div`
     display: flex;
     flex-direction: column;
     padding: 15px;
+  }
+
+  #success-message {
+    align-self: center;
+    color: ${props => props.theme.darkGreen}
   }
 
   #form-header {
@@ -46,7 +51,7 @@ const AuthFormStyles = styled.div`
   }
 
   input:focus {
-    border: 1px solid #19B188;
+    border: 1px solid ${props => props.theme.darkGreen};
   }
 
   .auth-form-input{
@@ -59,7 +64,7 @@ const AuthFormStyles = styled.div`
   }
 
   #forgot-password:hover {
-    color: #19B188;
+    color: ${props => props.theme.darkGreen};
     cursor: pointer;
   }
 
@@ -74,7 +79,7 @@ const AuthFormStyles = styled.div`
   }
 
   button {
-    background: #19B188;
+    background: ${props => props.theme.darkGreen};
     border: none;
     height: 30px;
     border-radius: 2px;

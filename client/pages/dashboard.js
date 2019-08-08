@@ -20,7 +20,6 @@ const InnerDashboard = styled.div`
 
 const CardContainer = styled.div`
   max-width: 823px;
-  border: 1px dotted red;
   display: flex;
   flex-wrap: wrap;
   background: ${props => props.theme.white};

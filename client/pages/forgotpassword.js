@@ -1,64 +1,13 @@
 import React from 'react';
-import { Mutation } from 'react-apollo';
 
-import AuthFormStyles from '../styles/AuthFormStyles';
-import { WithForm } from '../components/HOC';
-import REQUEST_RESET_MUTATION from '../graphql/mutations/RequestReset';
+import RequestReset from '../components/RequestReset';
+import ForgotPasswordStyles from '../styles/ForgotPasswordStyles';
 
-const WrappedComponent = props => {
-  const { onChange, onSubmit, onError, values } = props;
-  const { email } = values;
+const ForgotPassword = () => (
+  <ForgotPasswordStyles>
+    <RequestReset />
+  </ForgotPasswordStyles>
 
-  return (
-    <Mutation
-      mutation={REQUEST_RESET_MUTATION}
-      variables={{ recipientEmail: email }}
-    >
-      {(requestResetPasswordLink, { error, loading}) => (
-        <div>
-          <form
-            onSubmit={onSubmit(requestResetPasswordLink, 'requestreset')}
-          >
-            <AuthFormStyles>
-              <div>
-                <div id="authentication-form">
-                  <div id="form-body">
-                    <h1 id="form-header">Forgot Password ?</h1>
-                    <label htmlFor="email">Email</label>
-                    <input
-                      name="email"
-                      type="email"
-                      className="auth-form-input"
-                      placeholder="Email"
-                      value={email}
-                      autoComplete="email"
-                      onChange={onChange}
-                      required
-                    />
-                    <div id="action-button-container">
-                      <button
-                        type="submit"
-                        id="submit-button"
-                        disabled={loading}
-                      >
-                        Send Reset Link
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </AuthFormStyles>
-          </form>
-        </div>
-      )}
-    </Mutation>
-  )
-}
-
-const RequestReset = WithForm(WrappedComponent);
-
-export default () => (
-  <div>
-    <RequestReset initialState={{ email: "" }} />
-  </div>
 );
+
+export default ForgotPassword;

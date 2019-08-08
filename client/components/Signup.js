@@ -4,10 +4,11 @@ import Link from 'next/link';
 
 import AuthFormStyles from '../styles/AuthFormStyles';
 import { WithForm } from './HOC';
+
 import SIGN_UP_MUTATION from '../graphql/mutations/Signup';
 
 const Signup = props => {
-  const { onChange, onSubmit, onerror, values } = props;
+  const { onChange, onSubmit, onError, values } = props;
   const { username, email, password, phoneNumber } = values;
 
   return (
@@ -22,6 +23,8 @@ const Signup = props => {
           <AuthFormStyles>
             <div id="authentication-form">
               <div id="form-body">
+                {error && onError(error)}
+                {props.children}
                 <h1 id="form-header">Sign Up For Free</h1>
                 <label htmlFor="username">Username</label>
                 <input
@@ -78,7 +81,7 @@ const Signup = props => {
                   <span
                     id="forgot-password"
                   >
-                    <Link href="/requestreset">
+                    <Link href="/forgotpassword">
                       <a>Forgot Password?</a>
                     </Link>
                   </span>

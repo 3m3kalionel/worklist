@@ -24,6 +24,8 @@ const Signin = props => {
             <div>
               <div id="authentication-form">
                 <div id="form-body">
+                  {error && onError(error)}
+                  {props.children}
                   <h1 id="form-header">Welcome Back</h1>
                   <label htmlFor="email">Email</label>
                   <input
@@ -52,7 +54,7 @@ const Signin = props => {
                     <span
                       id="forgot-password"
                     >
-                    <Link href="/requestreset">
+                    <Link href="/forgotpassword">
                       <a>Forgot Password?</a>
                     </Link>
                   </span>
