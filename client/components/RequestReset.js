@@ -2,7 +2,7 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 
 import AuthFormStyles from '../styles/AuthFormStyles';
-import { WithForm } from '../components/HOC';
+import WithForm from '../components/HOC';
 import REQUEST_RESET_MUTATION from '../graphql/mutations/RequestReset';
 
 const WrappedComponent = props => {
