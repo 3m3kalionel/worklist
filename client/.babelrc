@@ -2,7 +2,15 @@
   "env": {
     "development": {
       "presets": [
-        "next/babel"
+        "next/babel",
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "browsers": ["last 2 Chrome versions"]
+            }
+          }
+        ]
       ],
       "plugins": [
         [
@@ -10,13 +18,20 @@
           {
             "ssr": true,
             "displayName": true
-          }
+          },
+          "@babel/plugin-proposal-object-rest-spread"
         ]
       ]
     },
     "production": {
       "presets": [
-        "next/babel"
+        "next/babel",
+        "@babel/preset-env",
+        {
+          "targets": {
+            "browsers": ["last 2 Chrome versions"]
+          }
+        }
       ],
       "plugins": [
         [
@@ -24,7 +39,8 @@
           {
             "ssr": true,
             "displayName": true
-          }
+          },
+          "@babel/plugin-proposal-object-rest-spread"
         ]
       ]
     },
@@ -45,9 +61,10 @@
           {
             "ssr": true,
             "displayName": true
-          }
+          },
+          "@babel/plugin-proposal-object-rest-spread"
         ]
       ]
     }
   }
-}
+}  
