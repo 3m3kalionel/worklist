@@ -3,6 +3,7 @@ import { Query } from 'react-apollo';
 import Link from 'next/link';
 
 import TodoList from '../components/TodoList';
+import CreateTodoList from '../components/CreateTodoList'
 import ALL_TODO_LISTS_QUERY from '../graphql/queries/AllTodos';
 
 import styled from 'styled-components';
@@ -26,37 +27,44 @@ const CardContainer = styled.div`
   justify-content: center;
 `;
 
+const CreateTodoListContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`;
+
 const dashboard = (props) => {
   const { query } = props;
   return (
     <Query query={ALL_TODO_LISTS_QUERY}>
-      {({ error, data, loading }) => {
-        return (
-          <Dashboard>
-            <InnerDashboard>
-              <CardContainer>
-                {
-                  data.getTodoLists.map((todoList, i) => {
-                    const { title, id, tasks } = todoList;
-                    return (
-                      <Link href={`/edit?todoId=${id}`} key={i}>
-                        <a>
-                          <TodoList
-                            id={id}
-                            title={title}
-                            tasks={tasks}
-                            query={query}
-                          />
-                        </a>
-                      </Link>
-                    )
-                  })
-                }
-              </CardContainer>
-            </InnerDashboard>
-          </Dashboard>
-        )
-      }}
+      {({ error, data, loading }) => (
+        <Dashboard>
+          <InnerDashboard>
+            <CreateTodoListContainer>
+              <CreateTodoList />
+            </CreateTodoListContainer>
+            <CardContainer>
+              {
+                data.getTodoLists.map((todoList, i) => {
+                  const { title, id, tasks } = todoList;
+                  return (
+                    <Link href={`/edit?todoId=${id}`} key={i}>
+                      <a>
+                        <TodoList
+                          id={id}
+                          title={title}
+                          tasks={tasks}
+                          query={query}
+                        />
+                      </a>
+                    </Link>
+                  )
+                })
+              }
+            </CardContainer>
+          </InnerDashboard>
+        </Dashboard>
+      )}
     </Query>
   )
 };

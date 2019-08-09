@@ -19,6 +19,9 @@
   "author": "3m3kalionel",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "apollo-boost": "^0.1.16",
     "apollo-client": "^2.4.2",
     "babel-plugin-styled-components": "^1.7.1",
@@ -30,6 +33,7 @@
     "react-apollo": "^2.5.2",
     "react-dom": "^16.8.6",
     "react-tooltip": "^3.10.0",
+    "shortid": "^2.2.14",
     "styled-components": "^3.4.9"
   }
 }

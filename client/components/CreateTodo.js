@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import ReactTooltip from 'react-tooltip'
 
 import TodoStyles from '../styles/TodoStyles';
 
-const Todo = ({ task }) => {
+const Todo = props => {
+  const { task, handleInputChange, handleInputChecked, handleDelete } = props;
   const { identifier, content, isCompleted } = task;
 
   return (
@@ -15,14 +19,19 @@ const Todo = ({ task }) => {
             className="task-checkbox"
             value={isCompleted}
             checked={isCompleted}
-            readOnly
+            onChange={handleInputChecked(identifier)}
           />
         </div>
+        <span className="icon" data-tip="Delete" place="bottom">
+          < FontAwesomeIcon icon={faTrashAlt} onClick={handleDelete(identifier)}  />
+          <ReactTooltip />
+        </span>
         <div className="task-input-container">
           <input
             id={identifier}
             className="task-input" 
-            defaultValue={content}
+            value={content}
+            onChange={handleInputChange(identifier)}
             autoFocus
           />
         </div>
