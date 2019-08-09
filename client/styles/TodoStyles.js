@@ -16,6 +16,10 @@ const TodoStyles = styled.div`
     display: block;
   }
 
+  #list-new-task {
+    width: 100%;
+  }
+
   .checkbox-container {
     position: absolute;
     display: flex;
@@ -35,9 +39,8 @@ const TodoStyles = styled.div`
   .icon {
     position: absolute;
     display: none;
-    color: #fff;
     margin-top: 4px;
-    right: 5px;
+    right: 15px;
     top: 3px;
   }
 

@@ -27,7 +27,7 @@ type Mutation {
   createTodoList(
     title: String
     priorityLevel: PriorityLevel
-    isPinned: Boolean!
+    isPinned: Boolean
     labels: [LabelWhereUniqueInput]
     contributors: [String]
     tasks: [CustomTodoMutationInput]
