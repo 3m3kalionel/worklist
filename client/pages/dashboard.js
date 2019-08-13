@@ -4,6 +4,7 @@ import Link from 'next/link';
 import TodoList from '../components/TodoList';
 import User from '../components/User';
 import ReAuth from '../components/ReAuth';
+import CreateTodoList from '../components/CreateTodoList';
 
 import styled from 'styled-components';
 const Dashboard = styled.div`
@@ -26,12 +27,21 @@ const CardContainer = styled.div`
   justify-content: center;
 `;
 
-const dashboard = (props) => {
+const CreateTodoListContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`;
+
+const dashboard = props => {
   const { query } = props;
   return (
     <ReAuth>
       <Dashboard>
         <InnerDashboard>
+          <CreateTodoListContainer>
+            <CreateTodoList />
+          </CreateTodoListContainer>
           <CardContainer>
             <User>
               {({data: { currentUser } }) => {

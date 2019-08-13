@@ -1,18 +1,28 @@
 import styled from 'styled-components';
 
-import Todo from '../components/Todo';
-
 const TodoListStyles = styled.div`
   input {
     color: ${props =>  props.theme.black};
-    background: #fff;
+    background: ${props => props.theme.white};
+  }
+
+  #todo-list-container,
+  #create-todo-list-container {
+    border: 1px solid ${props => props.theme.paletteGray200};
+    border-radius: 8px;
+    margin: 16px;
+    background: ${props => props.theme.white}
   }
 
   #todo-list-container {
-    border: 1px solid ${props => props.theme.paletteGray200};
-    border-radius: 8px;
     max-width: 240px;
-    margin: 16px;
+  }
+
+  #create-todo-list-container {
+    max-width: 600px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302),
+    0 2px 6px 2px rgba(60,64,67,0.149);
+
   }
 
   #todo-list-container:hover {
