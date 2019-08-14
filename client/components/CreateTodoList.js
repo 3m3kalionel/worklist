@@ -8,6 +8,7 @@ import AddNewTodo from './AddNewTodo';
 import TodoListFooter from './TodoListFooter';
 
 import CREATE_TODOLIST_MUTATION from '../graphql/mutations/CreateTodoList';
+import CURRENT_USER_QUERY from '../graphql/queries/CurrentUser';
 
 const CreateTodoList = () => {
   const [title, setTitle] = useState('');
@@ -18,6 +19,7 @@ const CreateTodoList = () => {
     <Mutation
       mutation={CREATE_TODOLIST_MUTATION}
       variables={{ title, tasks: todos }}
+      refetchQueries={[{ query: CURRENT_USER_QUERY }]}
     >
       {(createTodoList, { error, loading }) => (
         <TodoListStyles>
