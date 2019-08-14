@@ -36,4 +36,5 @@ type Mutation {
 
 type Query {
   getTodoLists(where: TodoListWhereInput, orderBy: TodoListOrderByInput, skip: Int, first: Int): [TodoList]!
+  currentUser: User
 }

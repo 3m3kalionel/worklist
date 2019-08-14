@@ -1,10 +1,10 @@
-import React from "react";
-import { Query } from 'react-apollo';
+import React, { Fragment } from "react";
 import Link from 'next/link';
 
 import TodoList from '../components/TodoList';
-import CreateTodoList from '../components/CreateTodoList'
-import ALL_TODO_LISTS_QUERY from '../graphql/queries/AllTodos';
+import User from '../components/User';
+import ReAuth from '../components/ReAuth';
+import CreateTodoList from '../components/CreateTodoList';
 
 import styled from 'styled-components';
 const Dashboard = styled.div`
@@ -33,39 +33,41 @@ const CreateTodoListContainer = styled.div`
   justify-content: center;
 `;
 
-const dashboard = (props) => {
+const dashboard = props => {
   const { query } = props;
   return (
-    <Query query={ALL_TODO_LISTS_QUERY}>
-      {({ error, data, loading }) => (
-        <Dashboard>
-          <InnerDashboard>
-            <CreateTodoListContainer>
-              <CreateTodoList />
-            </CreateTodoListContainer>
-            <CardContainer>
-              {
-                data.getTodoLists.map((todoList, i) => {
-                  const { title, id, tasks } = todoList;
-                  return (
-                    <Link href={`/edit?todoId=${id}`} key={i}>
-                      <a>
-                        <TodoList
-                          id={id}
-                          title={title}
-                          tasks={tasks}
-                          query={query}
-                        />
-                      </a>
-                    </Link>
-                  )
-                })
-              }
-            </CardContainer>
-          </InnerDashboard>
-        </Dashboard>
-      )}
-    </Query>
+    <ReAuth>
+      <Dashboard>
+        <InnerDashboard>
+          <CreateTodoListContainer>
+            <CreateTodoList />
+          </CreateTodoListContainer>
+          <CardContainer>
+            <User>
+              {({data: { currentUser } }) => {
+                return currentUser && currentUser.authoredTodoLists.length
+                  ? currentUser.authoredTodoLists.map((todoList, i) => {
+                      const { title, id, tasks } = todoList;
+                      return (
+                        <Link href={`/edit?todoId=${id}`} key={i}>
+                          <a>
+                            <TodoList
+                              id={id}
+                              title={title}
+                              tasks={tasks}
+                              query={query}
+                            />
+                          </a>
+                        </Link>
+                      )
+                    })
+                  : (<h4>You do not have any todo lists</h4>)
+              }}
+            </User> 
+          </CardContainer>
+        </InnerDashboard>
+      </Dashboard>
+    </ReAuth>
   )
 };
 

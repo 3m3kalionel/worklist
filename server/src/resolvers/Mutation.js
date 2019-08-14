@@ -1,7 +1,10 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
 import sendMail from '../utils';
+
+dotenv.config({ path: '.env' });
 
 const Mutation = {
   async signup(parent, args, ctx, info) {
@@ -15,12 +18,20 @@ const Mutation = {
       profilePicUrl
     };
 
-    return ctx.db.mutation.createUser({ data: userDetails });
+    const user = await ctx.db.mutation.createUser({ data: userDetails }, info);
+    const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
+
+    ctx.response.cookie('token', token, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 3
+    });
+
+    return user;
   },
 
   async signin(parent, args, ctx, info) {
     const { email, password } = args;
-    const user = await ctx.db.query.user({ where: { email } });
+    const user = await ctx.db.query.user({ where: { email: email.toLowerCase() } });
 
     if (!user) {
       throw new Error(`No user found for this email`);
@@ -29,6 +40,13 @@ const Mutation = {
     if (!isValidPassword) {
       throw new Error('Username and password don\'t match');
     }
+
+    const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
+
+    ctx.response.cookie('token', token, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 3
+    })
     
     return user;
   },

@@ -6,6 +6,7 @@ import AuthFormStyles from '../styles/AuthFormStyles';
 import { WithForm } from './HOC';
 
 import SIGN_IN_MUTATION from '../graphql/mutations/Signin';
+import CURRENT_USER_QUERY from '../graphql/queries/CurrentUser';
 
 const Signin = props => {
   const { onChange, onSubmit, onError, values } = props;
@@ -15,6 +16,7 @@ const Signin = props => {
     <Mutation
       mutation={SIGN_IN_MUTATION}
       variables={{ email, password }}
+      refetchQueries={[{ query: CURRENT_USER_QUERY }]}
     >
       {(signin, { error, loading }) => (
         <form
