@@ -23,6 +23,7 @@ type Mutation {
   ): User!
   signin(email: String!, password: String!): User!
   requestResetPasswordLink(recipientEmail: String!): SuccessMessage!
+  logout: SuccessMessage!
 
   createTodoList(
     title: String

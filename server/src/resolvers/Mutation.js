@@ -139,6 +139,11 @@ const Mutation = {
       }
     }, info)
   },
+
+  async logout(parent, args, ctx, info) {
+    ctx.response.clearCookie('token');
+    return { message: 'Logged out' }
+  }
 };
 
 export default Mutation;
