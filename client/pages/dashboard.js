@@ -5,10 +5,12 @@ import TodoList from '../components/TodoList';
 import User from '../components/User';
 import ReAuth from '../components/ReAuth';
 import CreateTodoList from '../components/CreateTodoList';
+import Navbar from '../components/Navbar';
 
 import styled from 'styled-components';
 const Dashboard = styled.div`
   height: 100vh;
+  position: relative;
 `;
 
 const InnerDashboard = styled.div`
@@ -17,6 +19,7 @@ const InnerDashboard = styled.div`
   background: ${props => props.theme.white};
   justify-content: center;
   height: 100%;
+  margin-top: 60px;
 `;
 
 const CardContainer = styled.div`
@@ -38,6 +41,7 @@ const dashboard = props => {
   return (
     <ReAuth>
       <Dashboard>
+        <Navbar />
         <InnerDashboard>
           <CreateTodoListContainer>
             <CreateTodoList />
