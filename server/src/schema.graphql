@@ -32,6 +32,12 @@ type Mutation {
     contributors: [String]
     tasks: [CustomTodoMutationInput]
   ): TodoList!
+
+  resetPassword(
+    resetToken: String,
+    password: String,
+    confirmPassword: String
+  ): User!
 }
 
 type Query {

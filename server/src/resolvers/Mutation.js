@@ -95,6 +95,30 @@ const Mutation = {
     return { message: 'Check your email for a reset link' };
   },
 
+  async resetPassword(parent, args, ctx, info) {
+    let user;
+    const { resetToken, password, confirmPassword } = args;
+
+    const decoded = await jwt.verify(resetToken, process.env.APP_SECRET,
+      async (error, decodedValue) => {
+        if (password !== confirmPassword) {
+          throw new Error('Passwords do not match');
+        }
+
+        if (error && error.message) {
+          throw new Error('Password reset link is either invalid or expired!');
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+        user = ctx.db.mutation.updateUser({
+          data: { password: hashedPassword },
+          where: { id: decodedValue.userId }
+        }, info);
+      });
+
+      return user;
+  },
+
   async createTodoList(parent, args, ctx, info) {
     const { tasks, labels } = args;
 
@@ -103,7 +127,7 @@ const Mutation = {
         ...args,
         author: {
           connect: {
-            id: "cjyu3mkpu4lbn0b53tbkhynqc"
+            id: ctx.request.userId
           }
         },
         tasks: {

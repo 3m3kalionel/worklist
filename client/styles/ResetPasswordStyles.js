@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const ForgotPasswordStyles = styled.div`
+const ResetPasswordStyles = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-`
+`;
 
-export default ForgotPasswordStyles;
+export default ResetPasswordStyles;

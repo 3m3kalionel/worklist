@@ -1,11 +1,11 @@
 import React from 'react';
 
-import RequestReset from '../components/RequestReset';
+import ResetPassword from '../components/ResetPassword';
 import ResetPasswordStyles from '../styles/ResetPasswordStyles';
 
-const ForgotPassword = () => (
+const ForgotPassword = (props) => (
   <ResetPasswordStyles>
-    <RequestReset />
+    <ResetPassword resetToken={props.query.resetToken} />
   </ResetPasswordStyles>
 );
 
