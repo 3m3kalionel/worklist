@@ -1,18 +1,18 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 
-import AuthFormStyles from '../styles/AuthFormStyles';
-import WithForm from './HOC';
+import AuthFormStyles from '../../styles/AuthFormStyles';
+import WithForm from '../HOC';
 
-import RESET_PASSWORD_MUTATION from '../graphql/mutations/ResetPassword';
-import CURRENT_USER_QUERY from '../graphql/queries/CurrentUser';
+import RESET_PASSWORD_MUTATION from '../../graphql/mutations/ResetPassword';
+import CURRENT_USER_QUERY from '../../graphql/queries/CurrentUser';
 
 const WrappedComponent = props => {
   const {
     onChange,
     onSubmit,
     onError,
-    values,
+    values = { password: "", confirmPassword: "" },
     resetToken
   } = props;
   const { password, confirmPassword } = values;
@@ -26,6 +26,7 @@ const WrappedComponent = props => {
       {(resetPassword, { data, error, loading }) => (
         <form
           onSubmit={onSubmit(resetPassword, 'reset')}
+          data-testid="form"
         >
           <AuthFormStyles>
             <div>
@@ -69,13 +70,4 @@ const WrappedComponent = props => {
   )
 }
 
-const ResetPassword = WithForm(WrappedComponent);
-
-export default (props) => (
-  <div>
-    <ResetPassword
-      resetToken={props.resetToken}
-      initialState={{ password: "", confirmPassword: "" }}
-    />
-  </div>
-);
+export default WithForm(WrappedComponent);
