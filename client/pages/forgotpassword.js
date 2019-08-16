@@ -1,6 +1,7 @@
 import React from 'react';
 
-import RequestReset from '../components/RequestReset';
+import RequestReset from '../components/RequestReset/RequestReset';
+
 import ResetPasswordStyles from '../styles/ResetPasswordStyles';
 
 const ForgotPassword = () => (

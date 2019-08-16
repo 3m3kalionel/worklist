@@ -1,12 +1,12 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 
-import AuthFormStyles from '../styles/AuthFormStyles';
-import { WithForm } from '../components/HOC';
-import REQUEST_RESET_MUTATION from '../graphql/mutations/RequestReset';
+import AuthFormStyles from '../../styles/AuthFormStyles';
+import WithForm from '../HOC';
+import REQUEST_RESET_MUTATION from '../../graphql/mutations/RequestReset';
 
 const WrappedComponent = props => {
-  const { onChange, onSubmit, onError, values } = props;
+  const { onChange, onSubmit, onError, values = { email: ''} } = props;
   const { email } = values;
 
   return (
@@ -17,6 +17,7 @@ const WrappedComponent = props => {
       {(requestResetPasswordLink, { data, error, loading, called }) => (
           <form
             onSubmit={onSubmit(requestResetPasswordLink, 'requestreset')}
+            data-testid="form"
           >
             <AuthFormStyles>
               <div>
@@ -62,10 +63,4 @@ const WrappedComponent = props => {
   )
 }
 
-const RequestReset = WithForm(WrappedComponent);
-
-export default () => (
-  <div>
-    <RequestReset initialState={{ email: "" }} />
-  </div>
-);
+export default WithForm(WrappedComponent);

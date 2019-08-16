@@ -3,7 +3,7 @@ import Router from 'next/router';
 
 import Error from './Error';
 
-export const WithForm = WrappedComponent => props => {
+const WithForm = WrappedComponent => props => {
   const { initialState } = props
   const [state, setState] = useState(initialState);
   const [error, setError] = useState('');
@@ -39,3 +39,5 @@ export const WithForm = WrappedComponent => props => {
     </WrappedComponent>
   )
 }
+
+export default WithForm;

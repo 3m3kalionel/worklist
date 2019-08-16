@@ -2,7 +2,7 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 
 import AuthFormStyles from '../styles/AuthFormStyles';
-import { WithForm } from './HOC';
+import WithForm from './HOC';
 
 import RESET_PASSWORD_MUTATION from '../graphql/mutations/ResetPassword';
 import CURRENT_USER_QUERY from '../graphql/queries/CurrentUser';

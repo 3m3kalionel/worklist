@@ -2,11 +2,12 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 import Link from 'next/link';
 
-import AuthFormStyles from '../styles/AuthFormStyles';
-import { WithForm } from './HOC';
+import AuthFormStyles from '../../styles/AuthFormStyles';
+import WithForm from '../HOC';
 
-import SIGN_UP_MUTATION from '../graphql/mutations/Signup';
-import CURRENT_USER_QUERY from '../graphql/queries/CurrentUser';
+import SIGN_UP_MUTATION from '../../graphql/mutations/Signup';
+
+import CURRENT_USER_QUERY from '../../graphql/queries/CurrentUser';
 
 const Signup = props => {
   const { onChange, onSubmit, onError, values } = props;
@@ -20,6 +21,7 @@ const Signup = props => {
     >
       {(signup, { error, loading }) => (
         <form
+          data-testid="form"     
           onSubmit={onSubmit(signup, 'signup')}
         >
           <AuthFormStyles>
