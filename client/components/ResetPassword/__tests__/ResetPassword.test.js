@@ -4,9 +4,9 @@ import { ApolloProvider } from 'react-apollo';
 import '@testing-library/react/cleanup-after-each';
 import { createMockClient } from 'mock-apollo-client';
 
-import Signup from '../Signup';
+import ResetPassword from '../ResetPassword';
 
-import SIGN_UP_MUTATION from '../../../graphql/mutations/Signup';
+import RESET_PASSWORD_MUTATION from '../../../graphql/mutations/ResetPassword';
 
 jest.mock("../../HOC.js", () => Component => {
   const mockHOC = props => (
@@ -21,10 +21,10 @@ const setup = (values, onSubmit) => {
   const mockClient = createMockClient();
 
   mockClient.setRequestHandler(
-    SIGN_UP_MUTATION,
+    RESET_PASSWORD_MUTATION,
     () => Promise.resolve({
       data: {
-        signup: {
+        resetPassword: {
           id: "cjzdoavvjvgby0b53mie0fqc3",
           username: "gee",
           email: "gee@gmail.com",
@@ -42,7 +42,7 @@ const setup = (values, onSubmit) => {
     getByTestId
   } = render(
     <ApolloProvider client={mockClient}>
-      <Signup
+      <ResetPassword
         values={values}
         onSubmit={onSubmitHandler}
         onChange={jest.fn()}
@@ -56,44 +56,38 @@ const setup = (values, onSubmit) => {
 describe('<Signup />', () => {
   test('renders an empty form', () => {
     const { container } = setup({
-      usernname: "",
-      email: "",
       password: "",
-      phoneNumber: ""
+      confirmPassword: "",
     });
 
-    expect(container).toMatchSnapshot()
+    expect(container).toMatchSnapshot();
   });
 
   test('renders text in the form input', () => {
     const { container } = setup({
-      usernname: "username",
-      email: "email@gmail.com",
       password: "password",
-      phoneNumber: "phoneNumber"
+      confirmPassword: "confirmPassword",
     });
 
     expect(container).toMatchSnapshot();
   });
 
   test('calls the submit handler when button is clicked', () => {
-  const onSubmitHandler = jest.fn();
-
-    const {
-      container,
-      getByTestId
-    } = setup({
-      usernname: "username",
-      email: "email@gmail.com",
-      password: "password",
-      phoneNumber: "phoneNumber"
-      },
-      onSubmitHandler
-    );
-    const form = getByTestId('form');
-    fireEvent.submit(form);
-
-    expect(onSubmitHandler).toHaveBeenCalled();
-    expect(container).toMatchSnapshot();
-  });
-});
+    const onSubmitHandler = jest.fn();
+  
+      const {
+        container,
+        getByTestId
+      } = setup({
+          password: "password",
+          confirmPassword: "confirmPassword",
+        },
+        onSubmitHandler
+      );
+      const form = getByTestId('form');
+      fireEvent.submit(form);
+  
+      expect(onSubmitHandler).toHaveBeenCalled();
+      expect(container).toMatchSnapshot();
+    });
+})

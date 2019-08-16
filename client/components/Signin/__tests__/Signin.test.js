@@ -4,9 +4,9 @@ import { ApolloProvider } from 'react-apollo';
 import '@testing-library/react/cleanup-after-each';
 import { createMockClient } from 'mock-apollo-client';
 
-import Signup from '../Signup';
+import Signin from '../Signin';
 
-import SIGN_UP_MUTATION from '../../../graphql/mutations/Signup';
+import SIGN_IN_MUTATION from '../../../graphql/mutations/Signin';
 
 jest.mock("../../HOC.js", () => Component => {
   const mockHOC = props => (
@@ -21,16 +21,16 @@ const setup = (values, onSubmit) => {
   const mockClient = createMockClient();
 
   mockClient.setRequestHandler(
-    SIGN_UP_MUTATION,
+    SIGN_IN_MUTATION,
     () => Promise.resolve({
       data: {
-        signup: {
-          id: "cjzdoavvjvgby0b53mie0fqc3",
-          username: "gee",
-          email: "gee@gmail.com",
+        signin: {
+          id: "cjyu8h6467e380b53tn7ezb58",
+          username: "emeka",
+          email: "emeka.l.okoro@gmail.com",
           profilePicUrl: null,
-          authoredTodoLists: [],
-          todoListsContributedTo: []
+          authoredTodoLists: null,
+          todoListsContributedTo: null
         }
       }
     })
@@ -42,7 +42,7 @@ const setup = (values, onSubmit) => {
     getByTestId
   } = render(
     <ApolloProvider client={mockClient}>
-      <Signup
+      <Signin
         values={values}
         onSubmit={onSubmitHandler}
         onChange={jest.fn()}
@@ -53,32 +53,27 @@ const setup = (values, onSubmit) => {
   return { container, getByText, getByTestId }
 }
 
-describe('<Signup />', () => {
+describe('<Signin />', () => {
   test('renders an empty form', () => {
     const { container } = setup({
-      usernname: "",
       email: "",
-      password: "",
-      phoneNumber: ""
+      password: ""
     });
 
-    expect(container).toMatchSnapshot()
+    expect(container).toMatchSnapshot();
   });
 
   test('renders text in the form input', () => {
     const { container } = setup({
       usernname: "username",
       email: "email@gmail.com",
-      password: "password",
-      phoneNumber: "phoneNumber"
     });
 
     expect(container).toMatchSnapshot();
   });
 
   test('calls the submit handler when button is clicked', () => {
-  const onSubmitHandler = jest.fn();
-
+    const onSubmitHandler = jest.fn();
     const {
       container,
       getByTestId
@@ -92,8 +87,8 @@ describe('<Signup />', () => {
     );
     const form = getByTestId('form');
     fireEvent.submit(form);
-
+  
     expect(onSubmitHandler).toHaveBeenCalled();
     expect(container).toMatchSnapshot();
   });
-});
+})

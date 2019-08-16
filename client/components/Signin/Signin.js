@@ -2,11 +2,11 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 import Link from 'next/link';
 
-import AuthFormStyles from '../styles/AuthFormStyles';
-import WithForm from './HOC';
+import AuthFormStyles from '../../styles/AuthFormStyles';
+import WithForm from '../HOC';
 
-import SIGN_IN_MUTATION from '../graphql/mutations/Signin';
-import CURRENT_USER_QUERY from '../graphql/queries/CurrentUser';
+import SIGN_IN_MUTATION from '../../graphql/mutations/Signin';
+import CURRENT_USER_QUERY from '../../graphql/queries/CurrentUser';
 
 const Signin = props => {
   const { onChange, onSubmit, onError, values } = props;
@@ -21,6 +21,7 @@ const Signin = props => {
       {(signin, { error, loading }) => (
         <form
           onSubmit={onSubmit(signin, 'signin')}
+          data-testid="form"
         >
           <AuthFormStyles>
             <div>
