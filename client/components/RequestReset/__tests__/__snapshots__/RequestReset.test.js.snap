@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RequestReset /> calls the submit handler when button is clicked 1`] = `
+<div>
+  <div>
+    <form
+      data-testid="form"
+    >
+      <div
+        class="AuthFormStyles-js87jd-0 ieHHDD"
+      >
+        <div>
+          <div
+            id="authentication-form"
+          >
+            <div
+              id="form-body"
+            >
+              <div
+                id="success-message"
+              />
+              <h1
+                id="form-header"
+              >
+                Forgot Password ?
+              </h1>
+              <label
+                for="email"
+              >
+                Email
+              </label>
+              <input
+                autocomplete="email"
+                class="auth-form-input"
+                name="email"
+                placeholder="Email"
+                required=""
+                type="email"
+                value="email@gmail.com"
+              />
+              <div
+                id="action-button-container"
+              >
+                <button
+                  id="submit-button"
+                  type="submit"
+                >
+                  Send Reset Link
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<RequestReset /> renders an empty form 1`] = `
+<div>
+  <div>
+    <form
+      data-testid="form"
+    >
+      <div
+        class="AuthFormStyles-js87jd-0 ieHHDD"
+      >
+        <div>
+          <div
+            id="authentication-form"
+          >
+            <div
+              id="form-body"
+            >
+              <div
+                id="success-message"
+              />
+              <h1
+                id="form-header"
+              >
+                Forgot Password ?
+              </h1>
+              <label
+                for="email"
+              >
+                Email
+              </label>
+              <input
+                autocomplete="email"
+                class="auth-form-input"
+                name="email"
+                placeholder="Email"
+                required=""
+                type="email"
+                value=""
+              />
+              <div
+                id="action-button-container"
+              >
+                <button
+                  id="submit-button"
+                  type="submit"
+                >
+                  Send Reset Link
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<RequestReset /> renders text in the form input 1`] = `
+<div>
+  <div>
+    <form
+      data-testid="form"
+    >
+      <div
+        class="AuthFormStyles-js87jd-0 ieHHDD"
+      >
+        <div>
+          <div
+            id="authentication-form"
+          >
+            <div
+              id="form-body"
+            >
+              <div
+                id="success-message"
+              />
+              <h1
+                id="form-header"
+              >
+                Forgot Password ?
+              </h1>
+              <label
+                for="email"
+              >
+                Email
+              </label>
+              <input
+                autocomplete="email"
+                class="auth-form-input"
+                name="email"
+                placeholder="Email"
+                required=""
+                type="email"
+                value="email@gmail.com"
+              />
+              <div
+                id="action-button-container"
+              >
+                <button
+                  id="submit-button"
+                  type="submit"
+                >
+                  Send Reset Link
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;

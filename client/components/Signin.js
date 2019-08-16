@@ -3,7 +3,7 @@ import { Mutation } from 'react-apollo';
 import Link from 'next/link';
 
 import AuthFormStyles from '../styles/AuthFormStyles';
-import { WithForm } from './HOC';
+import WithForm from './HOC';
 
 import SIGN_IN_MUTATION from '../graphql/mutations/Signin';
 import CURRENT_USER_QUERY from '../graphql/queries/CurrentUser';
