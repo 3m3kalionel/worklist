@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Signup from '../components/Signup/Signup';
-import Signin from '../components/Signin';
+import Signin from '../components/Signin/Signin';
 import AuthPageTabs from '../components/AuthPageTabs';
 
 import AuthPageStyles, { Container } from '../styles/AuthPageStyles';

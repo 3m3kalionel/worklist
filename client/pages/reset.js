@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ResetPassword from '../components/ResetPassword';
+import ResetPassword from '../components/ResetPassword/ResetPassword';
 import ResetPasswordStyles from '../styles/ResetPasswordStyles';
 
 const ForgotPassword = (props) => (
