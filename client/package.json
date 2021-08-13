@@ -30,7 +30,7 @@
     "babel-plugin-styled-components": "^1.7.1",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.9.2",
-    "next": "^9.0.2",
+    "next": "^11.1.0",
     "next-with-apollo": "^3.4.0",
     "react": "^16.8.6",
     "react-apollo": "^2.5.2",
